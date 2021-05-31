@@ -1,0 +1,8 @@
+
+.mainContainer {
+    position: relative;
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

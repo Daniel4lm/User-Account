@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "personalInfo": {
+            "firstName": "Ervin ",
+            "lastName": "Howell",
+            "email": "erwin@melissa.tv",
+            "mobNumber": "064/659-587",
+            "password": "Proactive didactic contingency"
+        },
+        "creditCards": [
+            {
+                "cardNumber": "423 456 9012 3456",
+                "expYear": "2026",
+                "expMonth": "February"
+            },
+            {
+                "cardNumber": "143 401 9012 7851",
+                "expYear": "2023",
+                "expMonth": "Jun"
+            },
+            {
+                "cardNumber": "556 466 9782 7043",
+                "expYear": "2021",
+                "expMonth": "November"
+            }
+        ],
+        "paymentPlan": "starter",
+        "billingInfo": [
+            {
+                "type": "Starter",
+                "amount": 3964,
+                "paidAt": "01/21/2021 14:52:32"
+            },
+            {
+                "type": "Business",
+                "amount": 2554,
+                "paidAt": "01/24/2021 14:52:32"
+            },
+            {
+                "type": "Enterprise",
+                "amount": 3547,
+                "paidAt": "01/27/2021 14:52:32"
+            }
+        ]
+    }
+]

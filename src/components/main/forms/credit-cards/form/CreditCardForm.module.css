@@ -1,0 +1,45 @@
+
+.container {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "number number"
+    "month year";
+    gap: 20px;
+    padding-top: 10px; 
+    justify-content: center;
+    /*align-content: center;*/
+}
+
+.container section {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitSection {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+@media screen and (max-width: 700px){
+
+    .container {
+        width: 70%;      
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "number"
+        "month"
+        "year";        
+    }
+
+    .submitSection {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 20px;
+    }
+}

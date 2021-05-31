@@ -1,0 +1,118 @@
+
+.infoContainer {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.2rem;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.infoTitle {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: #011F4B;
+    margin-bottom: 0.2rem;
+}
+
+.infoBellow {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #7E8299;
+    margin-bottom: 0.2rem;
+}
+
+.text {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #011F4B;
+    padding-left: 0.2rem;
+}
+
+.infoBallon {
+    width: 100%;
+    background: #0DB2F2;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 0.2rem;
+    /*overflow: ;*/
+}
+
+.infoBallon span {
+    display: block;
+    margin: 0.8rem;
+    font-size: 15px;
+    /*text-align: justify;*/
+}
+
+.userCard {    
+    background: #F1FAFE;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.userIcon {
+    border-radius: 50px;
+    background: #F6CA65;
+    display: grid;
+    align-content: center;    
+    margin: 0.5rem;
+}
+
+.userIcon span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 34px;
+    padding: 0.5rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.userInfo .name {
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #011F4B;
+}
+
+.userInfo .email,
+.userInfo .mob {
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #7E8299;
+}
+
+@media screen and (max-width: 550px) {
+
+    .nav {
+        grid-template-columns: auto auto;
+    }
+
+}

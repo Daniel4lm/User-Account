@@ -1,0 +1,43 @@
+
+.container {
+    position: absolute;
+    width: 100%;
+    /*height: 100vh;*/
+    /*height: 100%;*/
+    left: 0;
+    top: 0;
+    display: flex;
+}
+
+.leftSide {
+    width: 30%;
+    height: 100vh;
+    background: #005B96;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.rightSide {
+    flex: 1;
+    /*height: 100vh;*/
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.rightSide h2 {
+    color: #011F4B;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.rightSide p {
+    font-size: 16px;
+    line-height: 19px;
+    color: #005B96;
+}

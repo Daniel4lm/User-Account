@@ -1,0 +1,48 @@
+.nav {
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.item {
+    border-radius: 0.4rem;    
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem;
+    margin: 0 1rem;
+}
+
+.item span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.item:hover {
+    background: #e5f4fa;
+    transition: all 0.3s ease-out; 
+}
+
+@media screen and (max-width: 700px) {
+
+    .nav {
+        padding: 10px;
+        grid-template-columns: auto auto;
+        gap: 10px;
+    }
+
+    .item {
+        margin: 0;
+    }
+
+}

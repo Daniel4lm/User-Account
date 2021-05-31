@@ -1,0 +1,15 @@
+.toggleBtn {
+    width: max-content;
+    height: max-content;
+    border: none; 
+    /*color: rgb(98, 101, 102);*/
+    outline: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    background: transparent;
+    transition: all 0.2s ease-out;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
