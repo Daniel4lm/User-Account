@@ -2,11 +2,11 @@
     {
         "id": 1,
         "personalInfo": {
-            "firstName": "Ervin ",
+            "firstName": "Ervin",
             "lastName": "Howell",
-            "email": "erwin@melissa.tv",
+            "email": "erwin@melissa.com",
             "mobNumber": "064/659-587",
-            "password": "Proactive didactic contingency"
+            "password": "Proactive*di4dactic+contingency"
         },
         "creditCards": [
             {

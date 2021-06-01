@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.2rem;
+    padding: 1.2rem 1.2rem 1.2rem 2.6rem;
     font-family: 'Roboto';
     font-style: normal;
 }
@@ -110,6 +110,18 @@
 }
 
 @media screen and (max-width: 550px) {
+
+    .nav {
+        grid-template-columns: auto auto;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .infoContainer {
+        padding: 1rem;
+    }
 
     .nav {
         grid-template-columns: auto auto;

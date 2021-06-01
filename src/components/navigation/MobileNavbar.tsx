@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { UserContext } from "../../context/UserContext";
 import { ActionTypes } from "../../types";
 
-import style from "./Navbar.module.css";
+import style from "./MobileNavbar.module.css";
 
-export default function Navbar() {
+
+export default function MobileNavbar() {
 
     const { state, dispatch } = useContext(UserContext);
     let location = useLocation();
@@ -19,7 +20,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={style.nav}>
+        <div className={style.mobileNav}>
             <Link to='/user-info' style={{ textDecoration: 'none' }}>
                 <div className={style.item} onClick={() => changeItem('personalInfo')}>
                     <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,6 +87,6 @@ export default function Navbar() {
                     <span style={{ color: location.pathname === '/billing' ? '#0DB2F2' : '#CCCCCC' }}>Billing</span>
                 </div>
             </Link>
-        </nav>
+        </div>
     )
 }

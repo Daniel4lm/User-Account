@@ -8,6 +8,8 @@ import Payment from "./forms/payment/Payment";
 import Billing from "./forms/billing/Billing";
 import Unsubscribe from "./forms/payment/unsubsrcribe/Unsubscribe";
 
+import users from "../../data/users.json";
+
 import style from "./MainSection.module.css";
 import { ActionTypes } from '../../types';
 
@@ -17,8 +19,14 @@ export default function MainSection() {
 
     let history = useHistory();
 
-    useEffect(() => {        
-        history.push('/');
+    useEffect(() => {
+        /*
+        dispatch({
+            type: ActionTypes.LoadUser,
+            payload: users[0]
+        });*/
+
+        history.push('/user-info');
     }, []);
 
     useEffect(() => {
@@ -35,7 +43,6 @@ export default function MainSection() {
     return (
         <div className={style.mainContainer}>
             <Switch>
-                <Route path='/' exact />
                 <Route path='/user-info' exact component={PersonalInfo} />
                 <Route path='/user-info/unsubscribe' component={Unsubscribe} />
                 <Route path='/cards' >

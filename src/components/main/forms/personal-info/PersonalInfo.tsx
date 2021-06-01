@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { UserContext } from "../../../../context/UserContext";
 import { ActionTypes } from "../../../../types";
+
 import style from "./PersonalInfo.module.css";
 
 interface Values {
@@ -25,7 +26,8 @@ export default function PersonalInfo() {
     });
 
     const [inputErrors, setInputErrors] = useState<Errors>({
-        name_error: '',
+        fname_error: '',
+        lname_error: '',
         email_error: '',
         mob_error: '',
         pass_error: ''
@@ -43,10 +45,16 @@ export default function PersonalInfo() {
 
         let errors: Errors = {};
 
-        if (!values.fName || values.fName.length < 5 || !values.lName || values.lName.length < 5) {
-            errors.name_error = 'Your name must be at least 5 characters long!';
-        } else if (namePattern.test(values.fName) || namePattern.test(values.lName)) {
-            errors.name_error = "Name can't start with number or special character!";
+        if (!values.fName || values.fName.length < 5) {
+            errors.fname_error = 'First name must be at least 5 characters long!';
+        } else if (namePattern.test(values.fName)) {
+            errors.fname_error = "First name can't start with number or special character!";
+        }
+
+        if (!values.lName || values.lName.length < 5) {
+            errors.lname_error = 'Last name must be at least 5 characters long!';
+        } else if (namePattern.test(values.lName)) {
+            errors.lname_error = "Last name can't start with number or special character!";
         }
 
         if (!values.email) {
@@ -68,18 +76,18 @@ export default function PersonalInfo() {
             if (values.pass !== values.confPass) {
                 errors.pass_error = "Passwords don't match!";
                 return errors;
-            } else if (values.pass.length < 8){
+            } else if (values.pass.length < 8) {
                 errors.pass_error = "At least eight characters long!";
-            }            
+            }
             else if (!passPattern.test(values.pass)) {
                 errors.pass_error = 'At least one uppercase letter At least one lowercase letter At least one number At least one special character (i.e. !) At least eight characters long';
             }
         }
 
-        if(Object.keys(errors).length > 0) {
+        if (Object.keys(errors).length > 0) {
             return errors;
         }
-        
+
         dispatch({
             type: ActionTypes.UpdateUser,
             payload: {
@@ -90,7 +98,7 @@ export default function PersonalInfo() {
                 password: values.pass,
             }
         })
-        
+
         return errors;
     }
 
@@ -128,7 +136,7 @@ export default function PersonalInfo() {
                         value={values.fName}
                         onChange={inputUpdate}
                     />
-                    <span className={inputErrors.name_error ? style.error : `${style.container} ${style.hide}`}>{inputErrors.name_error}</span>
+                    <span className={inputErrors.fname_error ? style.error : `${style.container} ${style.hide}`}>{inputErrors.fname_error}</span>
                 </section>
 
                 <section>
@@ -150,7 +158,7 @@ export default function PersonalInfo() {
                         value={values.lName}
                         onChange={inputUpdate}
                     />
-                    <span className={inputErrors.name_error ? style.error : `${style.container} hide`}>{inputErrors.name_error}</span>
+                    <span className={inputErrors.lname_error ? style.error : `${style.container} hide`}>{inputErrors.lname_error}</span>
                 </section>
 
                 <section>

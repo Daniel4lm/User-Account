@@ -29,6 +29,7 @@ export interface StateType {
     section: "none" | "personalInfo" | "creditCard" | "paymentPlan" | "billing";
     showCardForm: boolean;
     showCancelledScreen: boolean;
+    toggle: boolean;
 }
 
 export enum ActionTypes {
@@ -41,5 +42,6 @@ export enum ActionTypes {
     ChangeSubscr = 'CHANGE_SUBSCRIPTION',
     SelectPayment = 'SELECT_PAYMENT_PLAN',
     SelectSection = 'SELECT_SECTION',
-    Unsubscribe = 'UNSUBSCRIPTION'
+    Unsubscribe = 'UNSUBSCRIPTION',
+    Toggle = 'TOGGLE_BTN',
 }

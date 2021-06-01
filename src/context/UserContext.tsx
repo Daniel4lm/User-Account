@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useEffect } from 'react';
 
 import { StateType } from "../types";
 import { UserReducer } from "../reducers/UserReducer";
+import useDisplaySize from '../components/hooks/useDisplaySize';
 
 const userState: StateType = {
     personalInfo: {
@@ -15,26 +16,26 @@ const userState: StateType = {
     subscribed: true,
     paymentPlan: "starter",
     billingInfo: [],
-    section: "none",
+    section: "personalInfo",
     showCardForm: false,
-    showCancelledScreen: false
+    showCancelledScreen: false,
+    toggle: false,
 }
 
-const UserContext = createContext<{ state: StateType; dispatch: React.Dispatch<any>; }>({
+const UserContext = createContext<{ state: StateType; dispatch: React.Dispatch<any>; isDesktop: boolean; }>({
     state: userState,
-    dispatch: () => null
+    dispatch: () => null,
+    isDesktop: false
 });
 
 const UserProvider: React.FC = ({ children }) => {
 
     const [state, dispatch] = useReducer(UserReducer, userState);
 
-    useEffect(() => {
-
-    }, []);
+    const { isDesktop } = useDisplaySize()
 
     return (
-        <UserContext.Provider value={{ state, dispatch }}>
+        <UserContext.Provider value={{ state, dispatch, isDesktop }}>
             {children}
         </UserContext.Provider>
     )

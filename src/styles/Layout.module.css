@@ -8,7 +8,6 @@
 
     grid-template-areas:
     "head head" 
-    "nav nav" 
     "info info"     
     "main main" 
     "footer footer";

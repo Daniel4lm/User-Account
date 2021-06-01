@@ -61,6 +61,11 @@ export const UserReducer = (state: StateType, action: Actions) => {
                 ...state,
                 section: action.payload,
             };
+        case ActionTypes.Toggle:
+            return {
+                ...state,
+                toggle: !state.toggle,
+            };
         case ActionTypes.Unsubscribe:
             return {
                 ...state,
