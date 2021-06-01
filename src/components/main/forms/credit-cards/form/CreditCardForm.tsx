@@ -10,7 +10,7 @@ interface Values {
 
 export default function NewCreditCard() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { dispatch } = useContext(UserContext);
 
     const [values, setValues] = useState<Values>({
         cardNumber: '',
@@ -38,7 +38,6 @@ export default function NewCreditCard() {
                 expYear: values.expYear,
             }
         })
-        //setInputErrors(inputValidation());
     }
 
     return (

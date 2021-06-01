@@ -27,6 +27,7 @@ export default function UserInfo() {
                     <div className={style.userInfo}>
                         <span className={style.name}>
                             {state.personalInfo.firstName}
+                            {' '}
                             {state.personalInfo.lastName}
                         </span>
                         <span className={style.email}>{state.personalInfo.email}</span>

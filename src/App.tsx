@@ -16,15 +16,13 @@ import { ActionTypes } from "./types";
 
 import users from "./data/users.json";
 import style from "./styles/Layout.module.css";
-import useDisplaySize from './components/hooks/useDisplaySize';
 
 function App() {
 
-  const { state, dispatch, isDesktop } = useContext(UserContext);
-
-  //const { isDesktop } = useDisplaySize()
+  const { state, dispatch, isMobile } = useContext(UserContext);
 
   useEffect(() => {
+
     dispatch({
       type: ActionTypes.LoadUser,
       payload: users[0]
@@ -32,37 +30,30 @@ function App() {
 
   }, []);
 
-
   useEffect(() => {
 
-    if (isDesktop && state.toggle) {
+    if (!isMobile && state.toggle) {
       dispatch({
         type: ActionTypes.Toggle
       });
     }
 
-  }, [isDesktop]);
-
-  useEffect(() => {
-    console.log('State ', JSON.stringify(state, null, 2));
-  }, [state]);
+  }, [isMobile]);
 
   return (
     <Router>
       <HelmetProvider>
-        <div className="App">
-          {state.toggle && <MobileNavbar />}
-          <main className={style.container}>
-            <Header />
-            <UserInfo />
-            <MainSection />
-            <Navbar />
-            <Footer />
-          </main>
-          {state.showCancelledScreen === true &&
-            <PaymentCandelled />
-          }
-        </div>
+        {state.toggle && <MobileNavbar />}
+        <main className={style.container}>
+          <Header />
+          <UserInfo />
+          <MainSection />
+          <Navbar />
+          <Footer />
+        </main>
+        {state.showCancelledScreen === true &&
+          <PaymentCandelled />
+        }
       </HelmetProvider>
     </Router>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useDisplaySize() {
 
@@ -7,7 +7,7 @@ export default function useDisplaySize() {
         height: window.innerHeight
     });
 
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 640 ? true : false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth > 500 ? false : true);
 
     useEffect(() => {
 
@@ -17,7 +17,7 @@ export default function useDisplaySize() {
                 height: window.innerHeight
             });
 
-            (displaySize.width > 640) ? setIsDesktop(true) : setIsDesktop(false) ;            
+            (displaySize.width > 500) ? setIsMobile(false) : setIsMobile(true) ;            
         }
 
         window.addEventListener('resize', getSize);
@@ -27,5 +27,5 @@ export default function useDisplaySize() {
         }
     }, [window.innerWidth])
 
-    return { isDesktop, displaySize };
+    return { isMobile, displaySize };
 }

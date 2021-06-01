@@ -1,12 +1,12 @@
 
 .container {
     width: 50%;
+    margin: auto;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     color: #011F4B;
 }
 

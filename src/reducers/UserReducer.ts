@@ -60,6 +60,7 @@ export const UserReducer = (state: StateType, action: Actions) => {
             return {
                 ...state,
                 section: action.payload,
+                toggle: false,
             };
         case ActionTypes.Toggle:
             return {

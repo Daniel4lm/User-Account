@@ -7,7 +7,7 @@ import style from "./Unsubscribe.module.css";
 
 export default function UnsubscribeForm() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { dispatch } = useContext(UserContext);
 
     let history = useHistory();
 

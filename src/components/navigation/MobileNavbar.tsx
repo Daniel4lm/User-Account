@@ -3,12 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { UserContext } from "../../context/UserContext";
 import { ActionTypes } from "../../types";
 
-import style from "./MobileNavbar.module.css";
-
+import style from "./Navbar.module.css";
 
 export default function MobileNavbar() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { dispatch } = useContext(UserContext);
     let location = useLocation();
 
     const changeItem = (section: string) => {

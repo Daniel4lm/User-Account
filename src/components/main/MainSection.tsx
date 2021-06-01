@@ -8,8 +8,6 @@ import Payment from "./forms/payment/Payment";
 import Billing from "./forms/billing/Billing";
 import Unsubscribe from "./forms/payment/unsubsrcribe/Unsubscribe";
 
-import users from "../../data/users.json";
-
 import style from "./MainSection.module.css";
 import { ActionTypes } from '../../types';
 
@@ -20,19 +18,12 @@ export default function MainSection() {
     let history = useHistory();
 
     useEffect(() => {
-        /*
-        dispatch({
-            type: ActionTypes.LoadUser,
-            payload: users[0]
-        });*/
-
         history.push('/user-info');
     }, []);
 
     useEffect(() => {
-        
+
         if (history.location.pathname !== '/cards' && state.showCardForm) {
-            console.log('opalio sam ...')
             dispatch({
                 type: ActionTypes.ShowCardForm,
                 payload: false

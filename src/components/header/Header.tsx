@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { StateType, ActionTypes } from "../../types";
 
 import Toggle from "./SidebarToggle";
 import style from './Header.module.css'
 
 export default function Header() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { state } = useContext(UserContext);
 
     return (
         <div className={style.header}>
@@ -18,7 +17,7 @@ export default function Header() {
                     {state.personalInfo.lastName.charAt(0)}
                 </div>
                 <p className={style.userName}>
-                    {state.personalInfo.firstName}
+                    {state.personalInfo.firstName}{' '}
                     {state.personalInfo.lastName}
                 </p>
             </div>

@@ -27,7 +27,7 @@
 }
 
 .infoBellow {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 16px;
     line-height: 19px;
     color: #7E8299;
@@ -70,8 +70,10 @@
 }
 
 .userIcon {
-    border-radius: 50px;
+    border-radius: 100%;
     background: #F6CA65;
+    width: 54px;
+    height: 54px;
     display: grid;
     align-content: center;    
     margin: 0.5rem;

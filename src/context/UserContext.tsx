@@ -1,8 +1,7 @@
-import React, { createContext, useReducer, useEffect } from 'react';
-
+import React, { createContext, useReducer } from 'react';
 import { StateType } from "../types";
 import { UserReducer } from "../reducers/UserReducer";
-import useDisplaySize from '../components/hooks/useDisplaySize';
+import useDisplaySize from '../hooks/useDisplaySize';
 
 const userState: StateType = {
     personalInfo: {
@@ -22,20 +21,20 @@ const userState: StateType = {
     toggle: false,
 }
 
-const UserContext = createContext<{ state: StateType; dispatch: React.Dispatch<any>; isDesktop: boolean; }>({
+const UserContext = createContext<{ state: StateType; dispatch: React.Dispatch<any>; isMobile: boolean; }>({
     state: userState,
     dispatch: () => null,
-    isDesktop: false
+    isMobile: false
 });
 
 const UserProvider: React.FC = ({ children }) => {
 
     const [state, dispatch] = useReducer(UserReducer, userState);
 
-    const { isDesktop } = useDisplaySize()
+    const { isMobile } = useDisplaySize()
 
     return (
-        <UserContext.Provider value={{ state, dispatch, isDesktop }}>
+        <UserContext.Provider value={{ state, dispatch, isMobile }}>
             {children}
         </UserContext.Provider>
     )

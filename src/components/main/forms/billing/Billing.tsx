@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router';
+import { useContext } from 'react';
 import { UserContext } from "../../../../context/UserContext";
-import { ActionTypes } from "../../../../types";
+//import { ActionTypes } from "../../../../types";
 
 import style from "./Billing.module.css";
 
 export default function Billing() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { state } = useContext(UserContext);
 
     return (
         <div className={style.container}>

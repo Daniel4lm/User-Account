@@ -7,7 +7,7 @@ import style from "./Navbar.module.css";
 
 export default function Navbar() {
 
-    const { state, dispatch } = useContext(UserContext);
+    const { dispatch } = useContext(UserContext);
     let location = useLocation();
 
     const changeItem = (section: string) => {

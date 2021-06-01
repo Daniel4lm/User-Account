@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { StateType, ActionTypes } from "../../types";
+import { ActionTypes } from "../../types";
 
 import style from "./Toggle.module.css";
 
@@ -10,14 +10,14 @@ interface ToggleType {
 
 export default function Toggle({ color }: ToggleType) {
 
-    const { state, dispatch, isDesktop } = useContext(UserContext);
+    const { dispatch, isMobile } = useContext(UserContext);
 
     const toggleHandle = () => {
-        if(!isDesktop) {
+        if (isMobile) {
             dispatch({
                 type: ActionTypes.Toggle
             });
-        } 
+        }
     }
 
     return (
