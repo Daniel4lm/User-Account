@@ -2,7 +2,7 @@
 
 This project was made by using [React.js](https://reactjs.org/) library and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-*This app have the functionalities of displaying the 4 user sections:
+This app have the functionalities of displaying the 4 user sections:
  - Personal info page that displays personal informations,
  - Credit card details where user can choice and activate/deactivate credit card,
  - Payment plan for user payment subscription type,
@@ -104,10 +104,10 @@ This runs the app in the development mode. Open [http://localhost:3000](http://l
  * HTML/CSS Layout is made by using **CSS Grid** and **Flexbox layout engines**,
  * App contains 4 main sections:
     *  **personaInfo**
-    *  **crediCard**,
+    *  **creditCard**,
     *  **paymentPlan**,
     *  **billing**
-    
+
  * ***React router*** library defines behaviour of all these sections(rendering, ...).
    
  * User informations are contained inside one state object called *userState*. That state object is maintained by **react reducer** using defined *actions* and *dispatch* methods. 
