@@ -41,42 +41,40 @@ export default function NewCreditCard() {
     }
 
     return (
-        <>
-            <form className={style.container} autoComplete='off' onSubmit={handleSubmit} noValidate>
-                <section style={{ gridArea: 'number' }} >
-                    <label htmlFor="cardNumber">Card number</label>
-                    <input
-                        type="text"
-                        name='cardNumber'
-                        value={values.fName}
-                        onChange={inputUpdate}
-                    />
-                </section>
+        <form className={style.container} autoComplete='off' onSubmit={handleSubmit} noValidate>
+            <section style={{ gridArea: 'number' }} >
+                <label htmlFor="cardNumber">Card number</label>
+                <input
+                    type="text"
+                    name='cardNumber'
+                    value={values.fName}
+                    onChange={inputUpdate}
+                />
+            </section>
 
-                <section style={{ gridArea: 'month' }}>
-                    <label htmlFor="expMonth">Expiration month</label>
-                    <input
-                        type="text"
-                        name='expMonth'
-                        value={values.expMonth}
-                        onChange={inputUpdate}
-                    />
-                </section>
+            <section style={{ gridArea: 'month' }}>
+                <label htmlFor="expMonth">Expiration month</label>
+                <input
+                    type="text"
+                    name='expMonth'
+                    value={values.expMonth}
+                    onChange={inputUpdate}
+                />
+            </section>
 
-                <section style={{ gridArea: 'year' }}>
-                    <label htmlFor="expYear">Expiration year</label>
-                    <input
-                        type="text"
-                        name='expYear'
-                        value={values.expYear}
-                        onChange={inputUpdate}
-                    />
-                </section>
+            <section style={{ gridArea: 'year' }}>
+                <label htmlFor="expYear">Expiration year</label>
+                <input
+                    type="text"
+                    name='expYear'
+                    value={values.expYear}
+                    onChange={inputUpdate}
+                />
+            </section>
 
-                <section className={style.submitSection}>
-                    <input type="submit" value='Save changes' />
-                </section>
-            </form>
-        </>
+            <section className={style.submitSection}>
+                <input type="submit" value='Save changes' />
+            </section>
+        </form>
     )
 }

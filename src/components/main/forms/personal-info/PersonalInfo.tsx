@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { UserContext } from "../../../../context/UserContext";
 import { ActionTypes } from "../../../../types";
 
@@ -125,6 +126,9 @@ export default function PersonalInfo() {
 
     return (
         <>
+            <Helmet>
+                <title>Personal info</title>
+            </Helmet>
             <form className={style.container} autoComplete='off' onSubmit={handleSubmit} noValidate>
 
                 <section >

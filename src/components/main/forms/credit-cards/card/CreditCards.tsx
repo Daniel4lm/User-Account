@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { UserContext } from "../../../../../context/UserContext";
 import { CreditCard } from "../../../../../types";
 import { ActionTypes } from "../../../../../types";
@@ -91,14 +92,19 @@ function CardDetails({ cardNumber, expYear, expMonth, active }: CreditCard) {
     }
 
     return (
-        <div className={active ? `${style.cardItem} ${style.active}` : style.cardItem}>
+        <>
+            <Helmet>
+                <title>Credit cards</title>
+            </Helmet>
+            <div className={active ? `${style.cardItem} ${style.active}` : style.cardItem}>
 
-            {svgCard()}
-            <span className={style.cNumber}>{cardNumber}</span>
-            <div className={style.checkBox} onClick={selectCard}>
-                {svgSelection()}
+                {svgCard()}
+                <span className={style.cNumber}>{cardNumber}</span>
+                <div className={style.checkBox} onClick={selectCard}>
+                    {svgSelection()}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

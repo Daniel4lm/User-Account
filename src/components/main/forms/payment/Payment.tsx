@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useHistory } from 'react-router';
 import { UserContext } from "../../../../context/UserContext";
 import { ActionTypes } from "../../../../types";
@@ -79,66 +80,71 @@ export default function Payment() {
     }
 
     return (
-        <div style={{ width: '90%' }}>
-            <div className={style.paymentContainer}>
+        <>
+            <Helmet>
+                <title>Payment</title>
+            </Helmet>
+            <div style={{ width: '90%' }}>
+                <div className={style.paymentContainer}>
 
-                {paymentPlans.map(plan => (
-                    <div key={plan.name} className={style.paymentCard}>
+                    {paymentPlans.map(plan => (
+                        <div key={plan.name} className={style.paymentCard}>
 
-                        {renderIcon(plan.name)}
+                            {renderIcon(plan.name)}
 
-                        <div className={style.group1}>
-                            <span className={style.payType}>
-                                {plan.name}
-                            </span>
-
-                            <div className={style.cont1}>
-                                <span className={style.count}>
-                                    ${plan.perMonth}
+                            <div className={style.group1}>
+                                <span className={style.payType}>
+                                    {plan.name}
                                 </span>
-                                <span><sub>&nbsp;/ per month</sub></span>
+
+                                <div className={style.cont1}>
+                                    <span className={style.count}>
+                                        ${plan.perMonth}
+                                    </span>
+                                    <span><sub>&nbsp;/ per month</sub></span>
+                                </div>
                             </div>
+
+                            <ul className={style.payList}>
+                                <li>Up to {plan.gateways} gateways</li>
+                                <li>{plan.support}</li>
+                                <li>{plan.updates}</li>
+                                <li>{plan.free}</li>
+                                <li>{plan.cancel}</li>
+                            </ul>
+
+                            { payPlan === plan.name ?
+                                <div className={style.btnGroup}>
+                                    <div className='selected'>
+                                        Plan selected
+                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <ellipse cx="11" cy="11.6181" rx="11" ry="11.2764" fill="#10A09A" />
+                                            <path d="M15.1017 7.23128C15.3042 7.03366 15.5736 6.92441 15.8532 6.92658C16.1328 6.92874 16.4006 7.04216 16.6001 7.2429C16.7997 7.44364 16.9153 7.71599 16.9227 8.00249C16.9301 8.28899 16.8286 8.56723 16.6397 8.77849L10.9044 16.1315C10.8058 16.2403 10.6868 16.3277 10.5544 16.3884C10.4221 16.449 10.2792 16.4817 10.1343 16.4845C9.98939 16.4872 9.84541 16.46 9.711 16.4044C9.57658 16.3488 9.45448 16.266 9.35199 16.1609L5.54857 12.2619C5.44265 12.1608 5.3577 12.0388 5.29877 11.9032C5.23985 11.7676 5.20817 11.6213 5.20561 11.4729C5.20306 11.3245 5.22969 11.1771 5.28391 11.0395C5.33813 10.9019 5.41883 10.7769 5.5212 10.6719C5.62357 10.567 5.74552 10.4843 5.87975 10.4287C6.01399 10.3731 6.15778 10.3458 6.30253 10.3484C6.44728 10.351 6.59004 10.3835 6.72228 10.4439C6.85452 10.5043 6.97354 10.5914 7.07224 10.7L10.0822 13.7841L15.0744 7.26369C15.0834 7.25235 15.093 7.24153 15.1031 7.23128H15.1017Z" fill="white" />
+                                        </svg>
+                                    </div>
+                                    <button onClick={() => { history.push('/user-info/unsubscribe') }}>Cancel subscription</button>
+                                </div>
+                                :
+                                <div className={style.btnGroup}>
+                                    <button onClick={() => setPayPlan(plan.name)}>Select plan</button>
+                                    <div className='selected' style={{ visibility: 'hidden' }}>
+                                        Plan selected
+                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <ellipse cx="11" cy="11.6181" rx="11" ry="11.2764" fill="#10A09A" />
+                                            <path d="M15.1017 7.23128C15.3042 7.03366 15.5736 6.92441 15.8532 6.92658C16.1328 6.92874 16.4006 7.04216 16.6001 7.2429C16.7997 7.44364 16.9153 7.71599 16.9227 8.00249C16.9301 8.28899 16.8286 8.56723 16.6397 8.77849L10.9044 16.1315C10.8058 16.2403 10.6868 16.3277 10.5544 16.3884C10.4221 16.449 10.2792 16.4817 10.1343 16.4845C9.98939 16.4872 9.84541 16.46 9.711 16.4044C9.57658 16.3488 9.45448 16.266 9.35199 16.1609L5.54857 12.2619C5.44265 12.1608 5.3577 12.0388 5.29877 11.9032C5.23985 11.7676 5.20817 11.6213 5.20561 11.4729C5.20306 11.3245 5.22969 11.1771 5.28391 11.0395C5.33813 10.9019 5.41883 10.7769 5.5212 10.6719C5.62357 10.567 5.74552 10.4843 5.87975 10.4287C6.01399 10.3731 6.15778 10.3458 6.30253 10.3484C6.44728 10.351 6.59004 10.3835 6.72228 10.4439C6.85452 10.5043 6.97354 10.5914 7.07224 10.7L10.0822 13.7841L15.0744 7.26369C15.0834 7.25235 15.093 7.24153 15.1031 7.23128H15.1017Z" fill="white" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+                            }
                         </div>
+                    ))}
 
-                        <ul className={style.payList}>
-                            <li>Up to {plan.gateways} gateways</li>
-                            <li>{plan.support}</li>
-                            <li>{plan.updates}</li>
-                            <li>{plan.free}</li>
-                            <li>{plan.cancel}</li>
-                        </ul>
-
-                        { payPlan === plan.name ?
-                            <div className={style.btnGroup}>
-                                <div className='selected'>
-                                    Plan selected
-                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="11" cy="11.6181" rx="11" ry="11.2764" fill="#10A09A" />
-                                        <path d="M15.1017 7.23128C15.3042 7.03366 15.5736 6.92441 15.8532 6.92658C16.1328 6.92874 16.4006 7.04216 16.6001 7.2429C16.7997 7.44364 16.9153 7.71599 16.9227 8.00249C16.9301 8.28899 16.8286 8.56723 16.6397 8.77849L10.9044 16.1315C10.8058 16.2403 10.6868 16.3277 10.5544 16.3884C10.4221 16.449 10.2792 16.4817 10.1343 16.4845C9.98939 16.4872 9.84541 16.46 9.711 16.4044C9.57658 16.3488 9.45448 16.266 9.35199 16.1609L5.54857 12.2619C5.44265 12.1608 5.3577 12.0388 5.29877 11.9032C5.23985 11.7676 5.20817 11.6213 5.20561 11.4729C5.20306 11.3245 5.22969 11.1771 5.28391 11.0395C5.33813 10.9019 5.41883 10.7769 5.5212 10.6719C5.62357 10.567 5.74552 10.4843 5.87975 10.4287C6.01399 10.3731 6.15778 10.3458 6.30253 10.3484C6.44728 10.351 6.59004 10.3835 6.72228 10.4439C6.85452 10.5043 6.97354 10.5914 7.07224 10.7L10.0822 13.7841L15.0744 7.26369C15.0834 7.25235 15.093 7.24153 15.1031 7.23128H15.1017Z" fill="white" />
-                                    </svg>
-                                </div>
-                                <button onClick={() => { history.push('/user-info/unsubscribe') }}>Cancel subscription</button>
-                            </div>
-                            :
-                            <div className={style.btnGroup}>
-                                <button  onClick={() => setPayPlan(plan.name)}>Select plan</button>
-                                <div className='selected' style={{ visibility: 'hidden' }}>
-                                    Plan selected
-                                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="11" cy="11.6181" rx="11" ry="11.2764" fill="#10A09A" />
-                                        <path d="M15.1017 7.23128C15.3042 7.03366 15.5736 6.92441 15.8532 6.92658C16.1328 6.92874 16.4006 7.04216 16.6001 7.2429C16.7997 7.44364 16.9153 7.71599 16.9227 8.00249C16.9301 8.28899 16.8286 8.56723 16.6397 8.77849L10.9044 16.1315C10.8058 16.2403 10.6868 16.3277 10.5544 16.3884C10.4221 16.449 10.2792 16.4817 10.1343 16.4845C9.98939 16.4872 9.84541 16.46 9.711 16.4044C9.57658 16.3488 9.45448 16.266 9.35199 16.1609L5.54857 12.2619C5.44265 12.1608 5.3577 12.0388 5.29877 11.9032C5.23985 11.7676 5.20817 11.6213 5.20561 11.4729C5.20306 11.3245 5.22969 11.1771 5.28391 11.0395C5.33813 10.9019 5.41883 10.7769 5.5212 10.6719C5.62357 10.567 5.74552 10.4843 5.87975 10.4287C6.01399 10.3731 6.15778 10.3458 6.30253 10.3484C6.44728 10.351 6.59004 10.3835 6.72228 10.4439C6.85452 10.5043 6.97354 10.5914 7.07224 10.7L10.0822 13.7841L15.0744 7.26369C15.0834 7.25235 15.093 7.24153 15.1031 7.23128H15.1017Z" fill="white" />
-                                    </svg>
-                                </div>
-
-                            </div>
-                        }
-                    </div>
-                ))}
-
-            </div >
-            <section className={style.submitSection}>
-                <input type="button" value='Save changes' onClick={() => selectPlan(payPlan)} />
-            </section>
-        </div>
+                </div >
+                <section className={style.submitSection}>
+                    <input type="button" value='Save changes' onClick={() => selectPlan(payPlan)} />
+                </section>
+            </div>
+        </>
     )
 }
