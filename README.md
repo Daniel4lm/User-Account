@@ -8,6 +8,13 @@ This app have the functionalities of displaying the 4 user sections:
  - Payment plan for user payment subscription type,
  - Billings info with a table for credit card transactions.*
 
+![image](https://user-images.githubusercontent.com/1280747/124476263-e6b51680-dda2-11eb-81ad-dd1c100b65f6.png)
+![image](https://user-images.githubusercontent.com/1280747/124476314-f03e7e80-dda2-11eb-885a-f22637fd0dfc.png)
+![image](https://user-images.githubusercontent.com/1280747/124476341-f7fe2300-dda2-11eb-8783-69bd3ba28fc4.png)
+![image](https://user-images.githubusercontent.com/1280747/124476366-00eef480-dda3-11eb-96b8-7838468f07d2.png)
+![image](https://user-images.githubusercontent.com/1280747/124476395-09472f80-dda3-11eb-89e7-3ecf45b905dd.png)
+![image](https://user-images.githubusercontent.com/1280747/124476420-12380100-dda3-11eb-9950-6f4fc3fe921d.png)
+
 
 ## Available Scripts in project
 
